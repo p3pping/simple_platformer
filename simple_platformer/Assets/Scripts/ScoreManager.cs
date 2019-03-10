@@ -1,20 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.IO;
 
 public class ScoreManager
 {
     private Score _currentScore;
-    private GameState _gameState;
+    public static readonly string LastScoreFilePath = Application.streamingAssetsPath + "/lastscore.txt";
+    public static readonly string ScoreFilePath = Application.streamingAssetsPath + "/scores.txt";
 
-    public ScoreManager(GameState gameState)
-    {
-        _gameState = gameState;
-        _gameState.LevelEventManager.OnLevelStart += LevelEventManager_OnLevelStart;        
-        _currentScore = new Score("new", 0);
-    }
-
-    private void LevelEventManager_OnLevelStart(object sender)
-    {        
+    public ScoreManager()
+    {      
         _currentScore = new Score("new", 0);
     }
 
@@ -27,4 +23,28 @@ public class ScoreManager
     {
         return _currentScore.FinalScore;
     }
+
+    public void SaveToFile()
+    {
+
+        if (!File.Exists(LastScoreFilePath))
+        {
+            File.Create(LastScoreFilePath);
+        }
+
+        string content;
+        using (StreamReader sr = new StreamReader(ScoreFilePath))
+        {
+            content = sr.ReadToEnd();
+        }
+
+        string newEntry = "KNIGHT:" + GetCurrentScoreValue().ToString() + "\r\n";        
+
+        using (StreamWriter sw = new StreamWriter(ScoreFilePath))
+        {
+            sw.Write(newEntry);
+            sw.Write(content);
+            sw.Close();
+        }
+    }    
 }

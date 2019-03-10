@@ -37,7 +37,7 @@ public class LevelEventManager
 
         if (AppStateManager.Instance.GetCurrentState().Name == GameState.name)
         {
-            AppStateManager.Instance.PopCurState(); //making the assuption this is the game state
+            AppStateManager.Instance.ReplaceCurrentState(new GameOverState());
         }
     }
 

@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class EnemyController : PhysicsEntityController
 {
+    public float moveSpeed;
     private GameState _gameState;
     private int _moveDir = -1;
     private Vector2 _velocity;
-    public float moveSpeed;    
-    
+    private float _shell;    
 
     public EnemyController(string name, string tag, IPhysicsBody2D body, IInputProxy inputProxy):base(name,tag,body,inputProxy)
     {
         _velocity = new Vector2(0, 0);
         _moveDir = (((int)Random.value) * 10 % 2 == 0) ? -1 : 1;
         _gameState = (AppStateManager.Instance.GetCurrentState().Name == GameState.name) ? (GameState)AppStateManager.Instance.GetCurrentState() : null;
-    }    
-
-    protected override void Cleanup()
-    {
-
+        _shell = 0.01f;
     }
+
 
     public override void Update(float delta)
     {
@@ -30,17 +27,24 @@ public class EnemyController : PhysicsEntityController
 
     void CheckAndHandleEdges()
     {
-        Vector2 halfSize = _body.GetSize() / 2;
+        Vector2 halfSize = (_body.GetSize() / 2)+ new Vector2(_shell*-2, _shell);
         Vector2 ray = new Vector2(0f, 0.3f);
-        Vector2 bottomLeftBound = _body.GetPosition() - halfSize;
+        Vector2 leadingBound = _body.GetPosition();
+        leadingBound.y -= halfSize.y;
 
-        halfSize.y *= -1;
-        Vector2 bottomRightBound = _body.GetPosition() + halfSize;
+        if (_moveDir == -1)
+        {
+            leadingBound.x -= halfSize.x;
+        }
+        else if (_moveDir == 1)
+        {            
+            leadingBound.x += halfSize.x;
+        }
 
-        var leftResult = ((RaycastHit2D)_body.Raycast(bottomLeftBound, bottomLeftBound - ray)).transform;
-        var rightResult = ((RaycastHit2D)_body.Raycast(bottomRightBound, bottomRightBound - ray)).transform;
+        
+        var rayResult = ((RaycastHit2D)_body.Raycast(leadingBound, leadingBound - ray)).transform;       
 
-        if (rightResult == null || leftResult == null)
+        if (rayResult == null)
         {
             _moveDir *= -1;
         }
@@ -54,12 +58,12 @@ public class EnemyController : PhysicsEntityController
 
     public override void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag != "Player" && collision.transform.tag != "Enemy" && collision.transform.tag != "Hazard")
+        if (collision.transform.tag != "Player" && collision.transform.tag != "Enemy" && collision.transform.tag != "Hazard" && collision.transform.tag != "Wall")
         {
             return;
         }        
 
-        if (collision.transform.tag == "Enemy" || collision.transform.tag == "Hazard")
+        if (collision.transform.tag == "Enemy" || collision.transform.tag == "Hazard" || collision.transform.tag == "Wall")
         {
             _moveDir *= -1;
             return;

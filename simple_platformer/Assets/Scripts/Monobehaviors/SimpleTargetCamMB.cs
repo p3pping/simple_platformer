@@ -15,6 +15,7 @@ public class SimpleTargetCamMB : MonoBehaviour
         {
             _gameState = (GameState)AppStateManager.Instance.GetCurrentState();
             _gameState.LevelEventManager.OnLevelStart += LevelEventManager_OnLevelStart;
+            FindAndTargetPlayer();
         }
     }
 
@@ -29,6 +30,11 @@ public class SimpleTargetCamMB : MonoBehaviour
 
     private void LevelEventManager_OnLevelStart(object sender)
     {
+        FindAndTargetPlayer();
+    }
+
+    void FindAndTargetPlayer()
+    {
         target = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -37,6 +43,7 @@ public class SimpleTargetCamMB : MonoBehaviour
     {
         if(target == null)
         {
+            FindAndTargetPlayer();
             return;
         }
 

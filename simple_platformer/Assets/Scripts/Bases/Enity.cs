@@ -55,7 +55,7 @@ public class Entity
 
     protected bool IsAppStateSet()
     {
-        return (_appState == null);
+        return (_appState != null);
     }    
     
 }

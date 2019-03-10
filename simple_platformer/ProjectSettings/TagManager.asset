@@ -11,6 +11,7 @@ TagManager:
   - LevelManager
   - EndZone
   - Pickup
+  - Wall
   layers:
   - Default
   - TransparentFX

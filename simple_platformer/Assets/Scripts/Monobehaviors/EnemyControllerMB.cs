@@ -14,7 +14,7 @@ public class EnemyControllerMB : MonoBehaviour
         _enemy = new EnemyController(
             name,
             tag,
-            new UnityCapsuleBody2D(transform, GetComponent<CapsuleCollider2D>(), GetComponent<Rigidbody2D>()),
+            new UnityBoxBody2D(transform, GetComponent<BoxCollider2D>(), GetComponent<Rigidbody2D>()),
             null
             );
         _enemy.moveSpeed = moveSpeed;
@@ -36,7 +36,10 @@ public class EnemyControllerMB : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        _enemy.OnCollisionEnter2D(collision);
+        if (_enemy != null)
+        {
+            _enemy.OnCollisionEnter2D(collision);
+        }
     }
 
 }

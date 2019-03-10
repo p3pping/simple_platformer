@@ -16,10 +16,10 @@ public class CoinPickup : Pickup
     }
 
     public override void DoAction()
-    {
+    {        
         //Add points here
-        if (IsAppStateSet() && _appState.Name == GameState.name)
-        {
+        if (IsAppStateSet() && _appState is GameState)
+        {            
             ((GameState)_appState).ScoreManager.AddToScoreValue(_scoreValue);
         }
         DelayDestroy();

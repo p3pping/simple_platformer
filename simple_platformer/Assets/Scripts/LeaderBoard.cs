@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 /// <summary>
@@ -62,5 +63,29 @@ public class LeaderBoard
     private void SortScoresDescending()
     {
         _scores = _scores.OrderByDescending(s => s.FinalScore).ToList();
+    }
+    
+
+    public void LoadFromFile()
+    {
+        if (!File.Exists(ScoreManager.ScoreFilePath))
+        {
+            File.Create(ScoreManager.ScoreFilePath);
+            return;
+        }
+        
+        using (StreamReader sr = new StreamReader(ScoreManager.ScoreFilePath))
+        {
+            string line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                var parts = line.Split(':');
+                int score;
+                int.TryParse(parts[1].Trim(), out score);
+                Score newScore = new Score(parts[0], score);
+                _scores.Add(newScore);
+            }
+            sr.Close();
+        }
     }
 }

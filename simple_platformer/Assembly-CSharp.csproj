@@ -60,16 +60,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AppStates\GameOverState.cs" />
     <Compile Include="Assets\Scripts\AppStates\GameState.cs" />
     <Compile Include="Assets\Scripts\AppStates\MenuState.cs" />
     <Compile Include="Assets\Scripts\Bases\AppState.cs" />
     <Compile Include="Assets\Scripts\Bases\AppStateManager.cs" />
     <Compile Include="Assets\Scripts\Bases\Enity.cs" />
+    <Compile Include="Assets\Scripts\Bases\Hazard.cs" />
     <Compile Include="Assets\Scripts\Bases\PhysicsEntity.cs" />
     <Compile Include="Assets\Scripts\Bases\PhysicsEntityController.cs" />
     <Compile Include="Assets\Scripts\Bases\Pickup.cs" />
+    <Compile Include="Assets\Scripts\Bases\Platform.cs" />
+    <Compile Include="Assets\Scripts\BreakablePlatform.cs" />
     <Compile Include="Assets\Scripts\CoinPickup.cs" />
     <Compile Include="Assets\Scripts\Concretes\PlayerInputProxy.cs" />
+    <Compile Include="Assets\Scripts\Concretes\PrefabObjectPool.cs" />
     <Compile Include="Assets\Scripts\Concretes\UnityBoxBody2D.cs" />
     <Compile Include="Assets\Scripts\Concretes\UnityCapsuleBody2D.cs" />
     <Compile Include="Assets\Scripts\Concretes\UnityCircleBody2D.cs" />
@@ -77,8 +82,9 @@
     <Compile Include="Assets\Scripts\EndZone.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\FallingBigBoi.cs" />
-    <Compile Include="Assets\Scripts\Hazard.cs" />
+    <Compile Include="Assets\Scripts\Generics\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Helpers\DebugHelpers.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IFactory.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInputProxy.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IPhysicsBody2D.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IState.cs" />
@@ -88,13 +94,17 @@
     <Compile Include="Assets\Scripts\LevelMap.cs" />
     <Compile Include="Assets\Scripts\LifeManager.cs" />
     <Compile Include="Assets\Scripts\Monobehaviors\BootstrapperMB.cs" />
+    <Compile Include="Assets\Scripts\Monobehaviors\BreakablePlatformMB.cs" />
     <Compile Include="Assets\Scripts\Monobehaviors\CoinPickupMB.cs" />
     <Compile Include="Assets\Scripts\Monobehaviors\EndZoneMB.cs" />
     <Compile Include="Assets\Scripts\Monobehaviors\EnemyControllerMB.cs" />
     <Compile Include="Assets\Scripts\Monobehaviors\FallingHazardMB.cs" />
+    <Compile Include="Assets\Scripts\Monobehaviors\GameOverInputListenerMB.cs" />
     <Compile Include="Assets\Scripts\Monobehaviors\HazardControllerMB.cs" />
+    <Compile Include="Assets\Scripts\Monobehaviors\LevelLoaderMB.cs" />
     <Compile Include="Assets\Scripts\Monobehaviors\MenuInputListenerMB.cs" />
     <Compile Include="Assets\Scripts\Monobehaviors\PlayerControllerMB.cs" />
+    <Compile Include="Assets\Scripts\Monobehaviors\PrefabPoolMB.cs" />
     <Compile Include="Assets\Scripts\Monobehaviors\SimpleTargetCamMB.cs" />
     <Compile Include="Assets\Scripts\Monobehaviors\SpawnPointMB.cs" />
     <Compile Include="Assets\Scripts\Monobehaviors\UILifeUpdaterMB.cs" />
@@ -102,6 +112,9 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
+    <Compile Include="Assets\UITopScoreDisplayMB.cs" />
+    <None Include="Assets\StreamingAssets\lastscore.txt" />
+    <None Include="Assets\StreamingAssets\scores.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Dev/simple_platformer/simple_platformer/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 using UnityEngine.SceneManagement;
 
 public class GameState : AppState
 {
     public const string name = "gamestate";
-    public const string scenePath = "DevScene";
+    public const string scenePath = "GameScene";
 
     private ScoreManager _scoreManager;
     public ScoreManager ScoreManager
@@ -31,8 +32,9 @@ public class GameState : AppState
     public GameState():base(name, scenePath)
     {        
         _levelEventManager = new LevelEventManager();
-        _scoreManager = new ScoreManager(this);
-        _lifeManager = new LifeManager(this);        
+        _scoreManager = new ScoreManager();
+        _lifeManager = new LifeManager(this);
+        _lifeManager.MaxLives = 3;
     }
 
     public override void Init()
@@ -49,6 +51,6 @@ public class GameState : AppState
 
     public override void Cleanup()
     {
-        //SceneManager.UnloadSceneAsync(scenePath);
+        _scoreManager.SaveToFile();
     }
 }
