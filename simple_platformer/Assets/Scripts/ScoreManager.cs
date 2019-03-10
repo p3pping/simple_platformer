@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
+/// <summary>
+/// Manages the tracking and saving of scores
+/// </summary>
 public class ScoreManager
 {
     private Score _currentScore;

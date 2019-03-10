@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Manages Player Movement
+/// </summary>
 public class PlayerController : PhysicsEntityController
 {
     private Vector2 _moveForce;
@@ -70,6 +73,9 @@ public class PlayerController : PhysicsEntityController
         }
     }
 
+    /// <summary>
+    /// Ensures that the max velocity cannot be exceeded
+    /// </summary>
     private void GovernVelocity()
     {
         if(Mathf.Abs(_body.Velocity.x) > maxSpeed)

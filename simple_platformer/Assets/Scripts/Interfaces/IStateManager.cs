@@ -7,4 +7,5 @@ public interface IStateManager
     IState GetCurrentState();
     void PopCurState();
     void PopAllStates();
+    void ReplaceCurrentState(IState state);
 }

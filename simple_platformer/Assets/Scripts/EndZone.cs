@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Represents and EndZone trigger
+/// </summary>
 public class EndZone : PhysicsEntity
 {
     const string playerTag = "Player";

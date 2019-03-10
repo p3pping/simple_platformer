@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// BreakablePlatformMB is a "gateway" monobehavior for BreakablePlatform Entities
+/// </summary>
 public class BreakablePlatformMB : MonoBehaviour
 {
     private BreakablePlatform _platform;

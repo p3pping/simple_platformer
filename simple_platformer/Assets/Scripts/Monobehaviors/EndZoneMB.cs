@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// <summary>
+/// EndZoneMB is a "gateway" monobehavior for EndZone Entities
+/// </summary>
 public class EndZoneMB : MonoBehaviour
 {
     private EndZone _endZone;

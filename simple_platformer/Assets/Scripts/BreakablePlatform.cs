@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Represents a breakable platform
+/// </summary>
 public class BreakablePlatform : Platform
 {
     private int _hitCount;
@@ -28,6 +31,10 @@ public class BreakablePlatform : Platform
         UpdateSpriteColor();
     }
 
+    /// <summary>
+    /// Updates the sprite color based on the remaining hits it can take
+    /// TODO: find a way to abstract this to decouple it from Unity    
+    /// </summary>
     private void UpdateSpriteColor()
     {
         //TODO abstract sprite access away in a lower derived class

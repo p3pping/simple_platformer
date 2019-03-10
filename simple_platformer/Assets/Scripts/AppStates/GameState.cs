@@ -3,6 +3,9 @@ using System.Collections;
 using System.IO;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// GameState state of the application
+/// </summary>
 public class GameState : AppState
 {
     public const string name = "gamestate";

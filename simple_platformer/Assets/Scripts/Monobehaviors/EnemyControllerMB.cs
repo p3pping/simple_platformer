@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// <summary>
+/// EnemyControllerMB is a "gateway" monobehavior for EnemyController Entities
+/// </summary>
 public class EnemyControllerMB : MonoBehaviour
 {
     private EnemyController _enemy;

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A very simple very naive targeted follow camera
+/// </summary>
 public class SimpleTargetCamMB : MonoBehaviour
 {
     public GameObject target;

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Base Hazard Class
+/// </summary>
 public class Hazard : PhysicsEntity
 {
     public Hazard(string name, string tag, IPhysicsBody2D body):base(name, tag, body)

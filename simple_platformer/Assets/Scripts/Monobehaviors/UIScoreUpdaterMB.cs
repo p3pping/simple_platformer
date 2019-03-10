@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// Updates the score UI tracking element
+/// </summary>
 public class UIScoreUpdaterMB : MonoBehaviour
 {
     private Text _scoreText;

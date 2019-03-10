@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controlles an Enemy
+/// </summary>
 public class EnemyController : PhysicsEntityController
 {
     public float moveSpeed;

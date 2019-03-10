@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/// <summary>
+/// AppStateManager is a singleton that will be used to manage the current state of the app.
+/// </summary>
 public class AppStateManager
 {
+    
     private static AppStateManager instance;
+    /// <summary>
+    /// Singleton Access Instance
+    /// </summary>
     public static AppStateManager Instance
     {
         get
@@ -15,55 +22,32 @@ public class AppStateManager
         }
     }
 
-    private Stack<AppState> _stateStack;
-    private Dictionary<Type, object> _persistentObjects;
+
+    private Stack<AppState> _stateStack;    
 
     private AppStateManager()
     {
-        _stateStack = new Stack<AppState>();
-        _persistentObjects = new Dictionary<Type, object>();
+        _stateStack = new Stack<AppState>();        
     }
 
     private AppStateManager(AppState initialState)
     {        
-        _stateStack = new Stack<AppState>();
-        _persistentObjects = new Dictionary<Type, object>();
+        _stateStack = new Stack<AppState>();        
         _stateStack.Push(initialState);
     }
 
-    public void PutPersistentObject<T>( object persistentObj)
-    {
-        Type objType = typeof(T);
-        if (_persistentObjects.ContainsKey(objType))
-        {
-            _persistentObjects[objType] = persistentObj;
-        }
-        else
-        {
-            _persistentObjects.Add(objType, persistentObj);
-        }
-    }
-
-    public object GetPersistentObject<T>()
-    {
-        Type objType = typeof(T);
-        return (_persistentObjects.ContainsKey(objType)) ? _persistentObjects[objType] : null;
-    }
-    
-    public void RemovePersistentObject<T>()
-    {
-        Type objType = typeof(T);
-        if (_persistentObjects.ContainsKey(objType))
-        {
-            _persistentObjects.Remove(objType);
-        }
-    }
-
+    /// <summary>
+    /// Gets the current state
+    /// </summary>
+    /// <returns></returns>
     public AppState GetCurrentState()
     {
         return (_stateStack.Count == 0)? null :_stateStack.Peek();
     }
 
+    /// <summary>
+    /// Clears the entire State manager of all states
+    /// </summary>
     public void PopAllStates()
     {
         while(_stateStack.Count > 0)
@@ -72,6 +56,10 @@ public class AppStateManager
         }
     }
 
+    /// <summary>
+    /// Replaces the current state with the supplied
+    /// </summary>
+    /// <param name="state"></param>
     public void ReplaceCurrentState(AppState state)
     {
         _stateStack.Peek().Cleanup();
@@ -80,15 +68,22 @@ public class AppStateManager
         _stateStack.Peek().Init();
     }
 
+    /// <summary>
+    /// Pops the top most state
+    /// </summary>
     public void PopCurState()
     {
         _stateStack.Peek().Cleanup();
         _stateStack.Pop();
-        //normally you wouldnt re-init, but because of the scope and time soncstraints I'm prioritising functionality
-        // I dont want to create a script just to manage what is in a scene to unload during transistion
+        //normally you wouldnt re-init, but because of the scope and time soncstraints I'm prioritising functionality over Additive Scene Managenent        
         _stateStack.Peek().Init();
     }
 
+
+    /// <summary>
+    /// Pushes a new state onto the stack
+    /// </summary>
+    /// <param name="newState"></param>
     public void PushState(AppState newState)
     {
         if (_stateStack.Count > 0)

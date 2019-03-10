@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Attempt to Abstract Box2D collider based bodies away from Unity
+/// </summary>
 public class UnityBoxBody2D : UnityPhysicsBody
 {
 

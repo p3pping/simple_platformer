@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Interface for basic States
+/// </summary>
 public interface IState
 {
     void Init();

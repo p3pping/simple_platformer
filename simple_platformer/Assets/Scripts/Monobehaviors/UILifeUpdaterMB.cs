@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// updates the life counter UI element
+/// </summary>
 public class UILifeUpdaterMB : MonoBehaviour
 {
     public string displayText = "Lives: ";

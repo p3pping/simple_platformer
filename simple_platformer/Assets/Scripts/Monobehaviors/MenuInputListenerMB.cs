@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Listens for a return input to progress from menu to gamestate
+/// </summary>
 public class MenuInputListenerMB : MonoBehaviour
 {
     // Start is called before the first frame update

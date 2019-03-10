@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// <summary>
+/// HazardControllerMB is a "gateway" monobehavior for Hazard Entities
+/// </summary>
 public class HazardControllerMB : MonoBehaviour
 {
     private Hazard _hazard;

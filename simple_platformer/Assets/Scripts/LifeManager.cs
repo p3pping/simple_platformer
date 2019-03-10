@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages player lives
+/// </summary>
 public class LifeManager
 {
     private GameState _gameState;

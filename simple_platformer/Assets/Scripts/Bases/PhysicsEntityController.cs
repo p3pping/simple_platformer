@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Base Physics Entity Controller
+/// </summary>
 public class PhysicsEntityController : PhysicsEntity
 {
     protected IInputProxy _inputProxy;

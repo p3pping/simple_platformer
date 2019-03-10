@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Spawns the player
+/// </summary>
 public class SpawnPointMB : MonoBehaviour
 {
     public GameObject prefab;

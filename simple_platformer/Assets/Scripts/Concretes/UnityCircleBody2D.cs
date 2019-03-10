@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Attempt to Abstract Circle2D collider based bodies away from Unity
+/// </summary>
 public class UnityCircleBody2D : UnityPhysicsBody
 {
 

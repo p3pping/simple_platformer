@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// PlayerControllerMB is a "gateway" monobehavior for PlayerController Entities
+/// </summary>
 public class PlayerControllerMB : MonoBehaviour
 {
     protected PlayerController _controller;

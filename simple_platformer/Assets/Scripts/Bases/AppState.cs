@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Defines the base class for a State this app coudl be in
+/// </summary>
 public class AppState : IState
 {
     private string _name;

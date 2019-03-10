@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+/// <summary>
+/// Generic Object Pool
+/// This pool does not track or handle returning objects
+/// </summary>
 public class ObjectPool<T>
 {
     private List<T> _pool;
@@ -15,6 +19,10 @@ public class ObjectPool<T>
         PoolObjects(initialSize);
     }
 
+    /// <summary>
+    /// Pools up some objects
+    /// </summary>
+    /// <param name="poolSize"></param>
     protected virtual void PoolObjects(int poolSize)
     {
         for (int i = 0; i < poolSize; i++)
@@ -23,11 +31,17 @@ public class ObjectPool<T>
         }
     }
 
+    /// <summary>
+    /// Creates Object of type T
+    /// </summary>
     protected virtual T CreateObject()
     {
         return Activator.CreateInstance<T>();
     }
 
+    /// <summary>
+    /// Take and object from the pool
+    /// </summary>
     protected virtual T TakeObject()
     {
         if(_pool.Count == 0)

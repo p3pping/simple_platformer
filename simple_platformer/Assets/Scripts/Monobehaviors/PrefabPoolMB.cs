@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// PrefabPoolMB is a "gateway" monobehavior for PrefabPool
+/// </summary>
 public class PrefabPoolMB : MonoBehaviour
 {
     public GameObject prefab;

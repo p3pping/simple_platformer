@@ -81,7 +81,7 @@
     <Compile Include="Assets\Scripts\Concretes\UnityPhysicsBody.cs" />
     <Compile Include="Assets\Scripts\EndZone.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
-    <Compile Include="Assets\Scripts\FallingBigBoi.cs" />
+    <Compile Include="Assets\Scripts\FallingHazard.cs" />
     <Compile Include="Assets\Scripts\Generics\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Helpers\DebugHelpers.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IFactory.cs" />
@@ -109,10 +109,10 @@
     <Compile Include="Assets\Scripts\Monobehaviors\SpawnPointMB.cs" />
     <Compile Include="Assets\Scripts\Monobehaviors\UILifeUpdaterMB.cs" />
     <Compile Include="Assets\Scripts\Monobehaviors\UIScoreUpdaterMB.cs" />
+    <Compile Include="Assets\Scripts\Monobehaviors\UITopScoreDisplayMB.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
-    <Compile Include="Assets\UITopScoreDisplayMB.cs" />
     <None Include="Assets\StreamingAssets\lastscore.txt" />
     <None Include="Assets\StreamingAssets\scores.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">

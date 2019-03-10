@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// CoinPickupMB is a "gateway" monobehavior for CoinPickup Entities
+/// </summary>
 public class CoinPickupMB : MonoBehaviour
 {
     public int scoreValue;

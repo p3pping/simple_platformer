@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// GameOver state of the application
+/// </summary>
 public class GameOverState : AppState
 {
     public const string name = "gameoverstate";

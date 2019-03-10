@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
+/// <summary>
+/// Represents and manages the loading of a level map
+/// </summary>
 public class LevelMap
 {
     public struct PrefabParentPair
@@ -53,7 +56,7 @@ public class LevelMap
                     char alias = line[x];
                     if (_prefabMap.ContainsKey(alias))
                     {
-                        //This is where I was intending to use the PrefabPool/s but I didnt get time to optimize this solution by using them.
+                        //TODO: make use of the object/prefab pools here
                         var pair = _prefabMap[alias];
                         var obj = GameObject.Instantiate(pair.prefab, new Vector2(x * size, (y * size) * -1), Quaternion.identity, pair.parent.transform);
                         obj.name = string.Concat(obj.name, _uniqueSuffix);

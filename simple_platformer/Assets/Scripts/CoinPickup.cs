@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Represents a CoinPickup
+/// </summary>
 public class CoinPickup : Pickup
 {
     private int _scoreValue;

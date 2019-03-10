@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>
+/// LevelLoaderMB is a "gateway" monobehavior for LevelMap
+/// </summary>
 public class LevelLoaderMB : MonoBehaviour
 {
     
